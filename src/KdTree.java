@@ -170,7 +170,10 @@ public class KdTree
     }
     public Iterable<Point2D> range(RectHV rect)             // all points that are inside the rectangle (or on the boundary)
     {
-        
+        List<Point2D> list = new LinkedList<Point2D>();
+        Node current = root;
+        checkcontain(current,rect,list);
+        return list;
     }
     public Point2D nearest(Point2D p)             // a nearest neighbor in the set to point p; null if the set is empty
     {
@@ -206,4 +209,39 @@ public class KdTree
             drawthrow(current.right);
         }
     }
+    private void checkcontain(Node current,RectHV rect,List list)
+    {
+        boolean done = false;
+        double xmin = rect.xmin();
+        double xmax = rect.xmax();
+        double ymin = rect.ymin();
+        double ymax = rect.ymax();
+        if (rect.contains(current.point))
+        {
+            list.add(current.point);
+        }
+        if (current.byX)
+        {
+            if (xmin < current.point.x() || xmax < current.point.x())
+            {
+                checkcontain(current.left,rect,list);
+            }
+            if (xmin > current.point.x() || xmax > current.point.x())
+            {
+                checkcontain(current.right,rect,list);
+            }
+        }
+        else
+        {
+            if (ymin < current.point.y() || ymax < current.point.y())
+            {
+                checkcontain(current.left,rect,list);
+            }
+            if (ymin > current.point.y() || ymax > current.point.y())
+            {
+                checkcontain(current.right,rect,list);
+            }
+        }
+    }
+
 }

@@ -21,8 +21,8 @@
       <file leaf-file-name="PointSET.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PointSET.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="33" selection-end-column="9" />
+            <state relative-caret-position="390">
+              <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="33" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -33,10 +33,11 @@
       <file leaf-file-name="KdTree.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/KdTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="202" column="9" lean-forward="true" selection-start-line="202" selection-start-column="9" selection-end-line="202" selection-end-column="9" />
+            <state relative-caret-position="-550">
+              <caret line="175" column="20" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5379#5388#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,7 +46,7 @@
       <file leaf-file-name="RectHV.java" pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/algs4.jar!/edu/princeton/cs/algs4/RectHV.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
+            <state relative-caret-position="255">
               <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
             </state>
           </provider>
@@ -54,8 +55,8 @@
       <file leaf-file-name="SET.java" pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/algs4.jar!/edu/princeton/cs/algs4/SET.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="58" column="23" lean-forward="true" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+            <state relative-caret-position="630">
+              <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -86,7 +87,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="218" />
+    <option name="x" value="217" />
     <option name="width" value="1400" />
     <option name="height" value="990" />
   </component>
@@ -95,9 +96,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -125,6 +124,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -245,8 +246,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1461126" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14812332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -258,12 +258,48 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/PointSET.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/algs4.jar!/edu/princeton/cs/algs4/RectHV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/algs4.jar!/edu/princeton/cs/algs4/SET.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="58" column="23" lean-forward="true" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KdTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3030">
+          <caret line="202" column="9" lean-forward="true" selection-start-line="202" selection-start-column="9" selection-end-line="202" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5379#5388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PointSET.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -346,8 +382,8 @@
     <entry file="jar://$PROJECT_DIR$/algs4.jar!/edu/princeton/cs/algs4/Point2D.java" />
     <entry file="file://$PROJECT_DIR$/src/PointSET.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="33" selection-end-column="9" />
+        <state relative-caret-position="390">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="33" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -356,24 +392,25 @@
     </entry>
     <entry file="jar://$PROJECT_DIR$/algs4.jar!/edu/princeton/cs/algs4/SET.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="58" column="23" lean-forward="true" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+        <state relative-caret-position="630">
+          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/algs4.jar!/edu/princeton/cs/algs4/RectHV.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
+        <state relative-caret-position="255">
           <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KdTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="202" column="9" lean-forward="true" selection-start-line="202" selection-start-column="9" selection-end-line="202" selection-end-column="9" />
+        <state relative-caret-position="-550">
+          <caret line="175" column="20" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5379#5388#0" expanded="true" />
           </folding>
         </state>
       </provider>
