@@ -28,7 +28,10 @@ public class PointSET
     }
     public void draw()                         // draw all points to standard draw
     {
-
+        for (Point2D points : set)
+        {
+            points.draw();
+        }
     }
     public Iterable<Point2D> range(RectHV rect)             // all points that are inside the rectangle (or on the boundary)
     {

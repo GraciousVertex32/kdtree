@@ -29,13 +29,12 @@ public class KdTree
         if (isEmpty())
         {
             root = new Node(p, true);
-            root.isred = false;
         }
         else
         {
-            boolean sorted = false;
+            boolean inserted = false;
             Node current = root;
-            while (!sorted) // loop until inserted
+            while (!inserted) // loop until inserted
             {
                 if (current.byX) // when sort by x
                 {
@@ -48,6 +47,8 @@ public class KdTree
                         else
                         {
                             current.left = new Node(p, false);
+                            inserted = true;
+                            size++;
                         }
                     }
                     else
@@ -58,7 +59,12 @@ public class KdTree
                         }
                         else
                         {
-                            current.right = new Node(p, false);
+                            if (current.point.compareTo(p) != 0)
+                            {
+                                current.right = new Node(p, false);
+                                size++;
+                            }
+                            inserted = true;
                         }
                     }
                 }
@@ -73,6 +79,8 @@ public class KdTree
                         else
                         {
                             current.left = new Node(p, true);
+                            inserted = true;
+                            size++;
                         }
                     }
                     else
@@ -83,7 +91,12 @@ public class KdTree
                         }
                         else
                         {
-                            current.right = new Node(p, true);
+                            if (current.point.compareTo(p) != 0)
+                            {
+                                current.right = new Node(p, true);
+                                size++;
+                            }
+                            inserted = true;
                         }
                     }
                 }
@@ -92,12 +105,72 @@ public class KdTree
     }
     public boolean contains(Point2D p)            // does the set contain point p?
     {
+        if (isEmpty())
+        {
+            return false;
+        }
+        Node current = root;
+        while (true) // loop until inserted
+        {
+            if (current.byX) // when sort by x
+            {
+                if (p.x() < current.point.x()) //
+                {
+                    if (current.left != null)
+                    {
+                        current = current.left;
+                    }
+                    else
+                    {
+                        return current.point.compareTo(p) == 0;
+                    }
+                }
+                else
+                {
+                    if (current.right != null)
+                    {
+                        current = current.right;
+                    }
+                    else
+                    {
+                        return current.point.compareTo(p) == 0;
+                    }
+                }
+            }
+            else
+            {
+                if (p.y() < current.point.y())
+                {
+                    if (current.left != null)
+                    {
+                        current = current.left;
+                    }
+                    else
+                    {
+                        return current.point.compareTo(p) == 0;
+                    }
+                }
+                else
+                {
+                    if (current.right != null)
+                    {
+                        current = current.right;
+                    }
+                    else
+                    {
+                        return current.point.compareTo(p) == 0;
+                    }
+                }
+            }
+        }
     }
     public void draw()                         // draw all points to standard draw
     {
+        drawthrow(root);
     }
     public Iterable<Point2D> range(RectHV rect)             // all points that are inside the rectangle (or on the boundary)
     {
+        
     }
     public Point2D nearest(Point2D p)             // a nearest neighbor in the set to point p; null if the set is empty
     {
@@ -108,36 +181,29 @@ public class KdTree
         public Node right;
         public Node predecessor;                 // questionable
         public Point2D point;
-        public boolean isred;
         public boolean byX;
         public Node(Point2D p, Node predecessor, boolean byx)
         {
             this.point = p;
-            this.isred = true;
             this.predecessor = predecessor;
             this.byX = byx;
         }
         public Node(Point2D p, boolean byx)
         {
             this.point = p;
-            this.isred = true;
             this.byX = byx;
         }
     }
-    private void RotateLeft(Node leftNode)
+    private void drawthrow(Node current)
     {
-        Node rightNode = leftNode.right;
-        leftNode.right = rightNode.left;
-        rightNode.left = leftNode;
-        leftNode.isred = rightNode.isred;
-        rightNode.isred = true;
-    }
-    private void RotateRight(Node rightNode)
-    {
-        Node leftNode = rightNode.left;
-        rightNode.left = leftNode.right;
-        leftNode.right = rightNode;
-        rightNode.isred = leftNode.isred;
-        leftNode.isred = true;
+        current.point.draw();
+        if (current.left != null)
+        {
+            drawthrow(current.left);
+        }
+        if (current.right != null)
+        {
+            drawthrow(current.right);
+        }
     }
 }
