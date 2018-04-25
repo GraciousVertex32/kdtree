@@ -69,6 +69,10 @@ public class KdTree
                                 inserted = true;
                             }
                         }
+                        else
+                        {
+                            inserted = true; // if is duplicate than stop
+                        }
                     }
                 }
                 else // same as above just split by Y
@@ -100,6 +104,10 @@ public class KdTree
                                 size++;
                                 inserted = true;
                             }
+                        }
+                        else
+                        {
+                            inserted = true;
                         }
                     }
                 }
