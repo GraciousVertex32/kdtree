@@ -40,37 +40,38 @@ public class KdTree
             {
                 if (current.byX) // when sort by x
                 {
-                    if (p.x() < current.point.x()) //
+                    if (p.x() < current.point.x()) // when point is less than current
                     {
-                        if (current.left != null)
+                        if (current.left != null) // go to left part of the tree
                         {
                             current = current.left;
                         }
                         else
                         {
-                            current.left = new Node(p, false);
+                            current.left = new Node(p, false); // create new node if it's null
                             inserted = true;
                             size++;
                         }
                     }
-                    else
+                    else // when is equal or more than
                     {
-                        if (current.right != null)
+                        if (current.point.compareTo(p) != 0) // check for duplicates
                         {
-                            current = current.right;
-                        }
-                        else
-                        {
-                            if (current.point.compareTo(p) != 0)
+                            if (current.right != null)
+                            {
+                                current = current.right;
+                            }
+                            else
                             {
                                 current.right = new Node(p, false);
                                 size++;
+
+                                inserted = true;
                             }
-                            inserted = true;
                         }
                     }
                 }
-                else
+                else // same as above just split by Y
                 {
                     if (p.y() < current.point.y())
                     {
@@ -87,18 +88,18 @@ public class KdTree
                     }
                     else
                     {
-                        if (current.right != null)
+                        if (current.point.compareTo(p) != 0)
                         {
-                            current = current.right;
-                        }
-                        else
-                        {
-                            if (current.point.compareTo(p) != 0)
+                            if (current.right != null)
+                            {
+                                current = current.right;
+                            }
+                            else
                             {
                                 current.right = new Node(p, true);
                                 size++;
+                                inserted = true;
                             }
-                            inserted = true;
                         }
                     }
                 }
@@ -129,13 +130,20 @@ public class KdTree
                 }
                 else
                 {
-                    if (current.right != null)
+                    if (current.point.compareTo(p) != 0)
                     {
-                        current = current.right;
+                        if (current.right != null)
+                        {
+                            current = current.right;
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
                     else
                     {
-                        return current.point.compareTo(p) == 0;
+                        return true;
                     }
                 }
             }
@@ -154,14 +162,22 @@ public class KdTree
                 }
                 else
                 {
-                    if (current.right != null)
+                    if (current.point.compareTo(p) != 0)
                     {
-                        current = current.right;
+                        if (current.right != null)
+                        {
+                            current = current.right;
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
                     else
                     {
-                        return current.point.compareTo(p) == 0;
+                        return true;
                     }
+
                 }
             }
         }
