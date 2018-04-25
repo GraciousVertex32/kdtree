@@ -8,7 +8,7 @@ public class RangeSearchVisualizer {
     public static void main(String[] args) {
 
         // initialize the data structures from file
-        String filename = "vertical7.txt";
+        String filename = "input10.txt";
         In in = new In(filename);
         PointSET brute = new PointSET();
         KdTree kdtree = new KdTree();

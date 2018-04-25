@@ -27,6 +27,10 @@ public class KdTree
     }
     public void insert(Point2D p)              // add the point to the set (if it is not already in the set)
     {
+        if (p == null)
+        {
+            throw new IllegalArgumentException();
+        }
         if (isEmpty())
         {
             root = new Node(p, true);
@@ -116,6 +120,10 @@ public class KdTree
     }
     public boolean contains(Point2D p)            // does the set contain point p?
     {
+        if (p == null)
+        {
+            throw new IllegalArgumentException();
+        }
         if (isEmpty())
         {
             return false;
@@ -196,13 +204,21 @@ public class KdTree
     }
     public Iterable<Point2D> range(RectHV rect)             // all points that are inside the rectangle (or on the boundary)
     {
+        if (rect == null)
+        {
+            throw new IllegalArgumentException();
+        }
         List<Point2D> list = new LinkedList<Point2D>();
         Node current = root;
         checkcontain(current,rect,list);
         return list;
     }
-    public Point2D nearest(Point2D p)             // a nearest neighbor in the set to point p; null if the set is empty
+    public Point2D nearest(Point2D p)// a nearest neighbor in the set to point p; null if the set is empty
     {
+        if (p == null)
+        {
+            throw new IllegalArgumentException();
+        }
         SearchNearest(root,p,0,1,0,1);
         nearest = 2;
         return nearestpoint;
@@ -295,7 +311,7 @@ public class KdTree
             {
                 SearchNearest(current.left,p,xmin,current.point.x(),ymin,ymax);
             }
-            else if (p.x() > current.point.x() && current.right != null)
+            else if (p.x() >= current.point.x() && current.right != null)
             {
                 SearchNearest(current.right,p,current.point.x(),xmax,ymin,ymax);
             }
@@ -306,7 +322,7 @@ public class KdTree
             {
                 SearchNearest(current.left,p,xmin,xmax,ymin,current.point.y());
             }
-            else if (p.y() > current.point.y() && current.right != null)
+            else if (p.y() >= current.point.y() && current.right != null)
             {
                 SearchNearest(current.right,p,xmin,xmax,current.point.y(),ymax);
             }
@@ -321,7 +337,7 @@ public class KdTree
                     SearchNearest(current.right,p,current.point.x(),xmax,ymin,ymax);
                 }
             }
-            else if (p.x() > current.point.x() && current.left != null)
+            else if (p.x() >= current.point.x() && current.left != null)
             {
                 if (nearest >= distance(p,xmin,current.point.x(),ymin,ymax))
                 {
@@ -338,7 +354,7 @@ public class KdTree
                     SearchNearest(current.right,p,xmin,xmax,current.point.y(),ymax);
                 }
             }
-            else if (p.y() > current.point.y() && current.left != null)
+            else if (p.y() >= current.point.y() && current.left != null)
             {
                 if (nearest >= distance(p,xmin,xmax,ymin,current.point.y()))
                 {
@@ -349,7 +365,7 @@ public class KdTree
     }
     private double distance(Point2D p,double xmin,double xmax,double ymin,double ymax)
     {
-        if (p.x() < xmax && p.x() >= xmin)
+        if (p.x() <= xmax && p.x() >= xmin)
         {
             if (Math.abs(p.y() - ymax) < Math.abs(p.y() - ymin))
             {
@@ -360,7 +376,7 @@ public class KdTree
                 return Math.abs(p.y() - ymin);
             }
         }
-        else if (p.y() < ymax && p.y() >= ymin)
+        else if (p.y() <= ymax && p.y() >= ymin)
         {
             if (Math.abs(p.x() - xmax) < Math.abs(p.x() - xmin))
             {
@@ -379,7 +395,7 @@ public class KdTree
                 double dy = p.y() - ymin;
                 return Math.sqrt(dx*dx + dy*dy);
             }
-            else if (p.y() >= ymax)
+            else if (p.y() > ymax)
             {
                 double dx = p.x() - xmin;
                 double dy = p.y() - ymax;
@@ -394,15 +410,13 @@ public class KdTree
                 double dy = p.y() - ymin;
                 return Math.sqrt(dx*dx + dy*dy);
             }
-            else if(p.y() >= ymax)
+            else if(p.y() > ymax)
             {
                 double dx = p.x() - xmax;
                 double dy = p.y() - ymax;
                 return Math.sqrt(dx*dx + dy*dy);
             }
         }
-        System.out.println(xmin +" "+xmax +" "+ymin +" "+ymax);
-        System.out.println(p.x()+" "+p.y());
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(xmin +" "+xmax +" "+ymin +" "+ymax+"   "+p.x()+" "+p.y());
     }
 }
