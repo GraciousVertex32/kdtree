@@ -210,6 +210,10 @@ public class KdTree
         }
         List<Point2D> list = new LinkedList<Point2D>();
         Node current = root;
+        if (current == null)
+        {
+            return list;
+        }
         checkcontain(current,rect,list);
         return list;
     }
@@ -218,6 +222,10 @@ public class KdTree
         if (p == null)
         {
             throw new IllegalArgumentException();
+        }
+        if (root == null)
+        {
+            return null;
         }
         SearchNearest(root,p,0,1,0,1);
         nearest = 2;
@@ -281,7 +289,7 @@ public class KdTree
             {
                 checkcontain(current.left,rect,list);
             }
-            if ((xmin > current.point.x() || xmax > current.point.x()) && current.right != null)
+            if ((xmin >= current.point.x() || xmax >= current.point.x()) && current.right != null)
             {
                 checkcontain(current.right,rect,list);
             }
@@ -292,7 +300,7 @@ public class KdTree
             {
                 checkcontain(current.left,rect,list);
             }
-            if ((ymin > current.point.y() || ymax > current.point.y()) && current.right !=null)
+            if ((ymin >= current.point.y() || ymax >= current.point.y()) && current.right !=null)
             {
                 checkcontain(current.right,rect,list);
             }
@@ -365,6 +373,10 @@ public class KdTree
     }
     private double distance(Point2D p,double xmin,double xmax,double ymin,double ymax)
     {
+        if ((p.x() >= xmin && p.x() <= xmax) && (p.y() >= ymin && p.y() <= ymax))
+        {
+            return 0;
+        }
         if (p.x() <= xmax && p.x() >= xmin)
         {
             if (Math.abs(p.y() - ymax) < Math.abs(p.y() - ymin))
