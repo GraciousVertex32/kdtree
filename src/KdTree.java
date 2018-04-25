@@ -180,6 +180,7 @@ public class KdTree
     public Point2D nearest(Point2D p)             // a nearest neighbor in the set to point p; null if the set is empty
     {
         SearchNearest(root,p,0,1,0,1);
+        nearest = 2;
         return nearestpoint;
     }
     private class Node
@@ -259,7 +260,6 @@ public class KdTree
     }
     private void SearchNearest(Node current,Point2D p,double xmin,double xmax,double ymin,double ymax)
     {
-        System.out.println("node"+current.point.x()+" "+current.point.y());
         if (p.distanceTo(current.point) < nearest)
         {
             nearest = p.distanceTo(current.point);
@@ -362,7 +362,7 @@ public class KdTree
                 return Math.sqrt(dx*dx + dy*dy);
             }
         }
-        else
+        else if (p.x() > xmax)
         {
             if (p.y() < ymin)
             {
@@ -370,7 +370,7 @@ public class KdTree
                 double dy = p.y() - ymin;
                 return Math.sqrt(dx*dx + dy*dy);
             }
-            else
+            else if(p.y() >= ymax)
             {
                 double dx = p.x() - xmax;
                 double dy = p.y() - ymax;
